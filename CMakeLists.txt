@@ -29,4 +29,4 @@ enable_testing(true)
 
 #add the subprojects folders
 add_subdirectory(calculator)
-add_subdirectory(specification)
+#add_subdirectory(specification)

@@ -16,25 +16,15 @@ include_directories("${PROJECT_INCLUDE_DIR}")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 
 #=== Targets ===
-# == Controller library ==
-set(CONTROLLER_LIB_SOURCES
-        ${PROJECT_SOURCE_DIR}/ChainableController.cpp
+# == main program using calculator ==
+set(CALCULATOR_MAIN_SOURCES
+        ${PROJECT_SOURCE_DIR}/Calculator.cpp
+        ${PROJECT_SOURCE_DIR}/main.cpp
         )
-set(CONTROLLER_LIB_HEADERS
-        ${PROJECT_INCLUDE_DIR}/GeneralMoveController.hpp
-        ${PROJECT_INCLUDE_DIR}/ChainableController.hpp
-        ${PROJECT_SOURCE_DIR}/ScopedState.hpp
-        ${PROJECT_INCLUDE_DIR}/InformationHub.hpp
-        ${PROJECT_INCLUDE_DIR}/ChainFactory.hpp
-        ${PROJECT_INCLUDE_DIR}/ControllerFactory.hpp
-        ${PROJECT_SOURCE_DIR}/ControllerFactory_impl.hpp
-        ${PROJECT_INCLUDE_DIR}/ViewInterface.hpp
-        ${PROJECT_SOURCE_DIR}/ViewInterface_impl.hpp
-        ${PROJECT_INCLUDE_DIR}/ActionHandlerController.hpp
-        ${PROJECT_SOURCE_DIR}/ActionHandlerController_impl.hpp
-        ${PROJECT_INCLUDE_DIR}/ShowStatusController.hpp
+set(CALCULATOR_MAIN_HEADERS
+        ${PROJECT_INCLUDE_DIR}/Calculator.hpp
+        ${PROJECT_SOURCE_DIR}/DividedByZeroException.hpp
         )
 
-add_library(controller ${CONTROLLER_LIB_SOURCES} ${CONTROLLER_LIB_HEADERS})
-add_dependencies(controller BetterEnums)
-target_link_libraries(controller common)
+add_executable(main ${CALCULATOR_MAIN_SOURCES} ${CALCULATOR_MAIN_HEADERS})
+
