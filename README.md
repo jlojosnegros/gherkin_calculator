@@ -1,6 +1,6 @@
 # Gherkin Calculator
 
-##SetUp
+## SetUp
 
 ```
 > git clone https://github.com/jlojosnegros/gherkin_calculator.git
@@ -14,7 +14,7 @@
 > mkdir build
 > cd build
 > cmake ..
-> make test
+> make all
 
 ```
 
