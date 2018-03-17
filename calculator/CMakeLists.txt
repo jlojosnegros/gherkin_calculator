@@ -16,15 +16,22 @@ include_directories("${PROJECT_INCLUDE_DIR}")
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 
 #=== Targets ===
-# == main program using calculator ==
-set(CALCULATOR_MAIN_SOURCES
+set(CALCULATOR_LIB_SOURCES
         ${PROJECT_SOURCE_DIR}/Calculator.cpp
-        ${PROJECT_SOURCE_DIR}/main.cpp
         )
-set(CALCULATOR_MAIN_HEADERS
+set(CALCULATOR_LIB_HEADERS
         ${PROJECT_INCLUDE_DIR}/Calculator.hpp
         ${PROJECT_SOURCE_DIR}/DividedByZeroException.hpp
         )
 
-add_executable(main ${CALCULATOR_MAIN_SOURCES} ${CALCULATOR_MAIN_HEADERS})
+add_library(calculator ${CALCULATOR_LIB_SOURCES} ${CALCULATOR_LIB_HEADERS})
 
+# == main program using calculator ==
+set(CALCULATOR_MAIN_SOURCES
+        ${PROJECT_SOURCE_DIR}/main.cpp
+        )
+set(CALCULATOR_MAIN_HEADERS
+        )
+
+add_executable(main ${CALCULATOR_MAIN_SOURCES} ${CALCULATOR_MAIN_HEADERS})
+target_link_libraries(main calculator)
