@@ -25,6 +25,6 @@ include_directories("${PROJECT_ROOT_DIR}")
 enable_testing(true)
 
 #add the subprojects folders
-add_subdirectory(GUnit EXCLUDE_FROM_ALL)
+add_subdirectory(3pp EXCLUDE_FROM_ALL)
 add_subdirectory(calculator)
 add_subdirectory(specification)
