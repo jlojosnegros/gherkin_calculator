@@ -14,7 +14,7 @@
 > mkdir build
 > cd build
 > cmake ..
-> make all
+> make calculator_test
 
 ```
 
