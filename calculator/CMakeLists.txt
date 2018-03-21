@@ -21,7 +21,7 @@ set(CALCULATOR_LIB_SOURCES
         )
 set(CALCULATOR_LIB_HEADERS
         ${PROJECT_INCLUDE_DIR}/Calculator.hpp
-        ${PROJECT_SOURCE_DIR}/DividedByZeroException.hpp
+        ${PROJECT_INCLUDE_DIR}/DividedByZeroException.hpp
         )
 
 add_library(calculator ${CALCULATOR_LIB_SOURCES} ${CALCULATOR_LIB_HEADERS})

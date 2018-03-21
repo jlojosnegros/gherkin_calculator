@@ -2,6 +2,7 @@
 #define GHERKIN_CALCULATOR_CALCULATOR_HPP
 
 #include <cstdint>
+#include <functional>
 
 class Calculator final
 {
@@ -25,6 +26,8 @@ public:
 protected:
 private:
     std::int64_t currentValue;
+    std::int32_t op1;
+    std::function<std::int64_t (std::int32_t, std::int32_t)> operation;
 };
 
 #endif //GHERKIN_CALCULATOR_CALCULATOR_HPP

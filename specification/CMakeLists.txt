@@ -57,10 +57,24 @@ add_test(test_calculator_mul_steps calculator_mul_steps)
 #copy feature file to binary folder ... still unable to make cmake recompile if feature file changes...
 configure_file(${PROJECT_FEATURES_DIR}/mult.feature ${CMAKE_BINARY_DIR}/mult.feature COPYONLY)
 
+#== Div feature ==
+set(CALCULATOR_DIV_STEPS_SOURCES
+        ${PROJECT_SOURCE_DIR}/CalculatorSteps.cpp)
+
+add_executable(calculator_div_steps EXCLUDE_FROM_ALL ${CALCULATOR_DIV_STEPS_SOURCES})
+add_dependencies(calculator_div_steps gherkin_cpp-static)
+target_link_libraries(calculator_div_steps gtest_main gmock_main gherkin-cpp calculator)
+add_custom_command(TARGET calculator_div_steps COMMAND SCENARIO=${PROJECT_FEATURES_DIR}/div.feature ${CMAKE_BINARY_DIR}/calculator_div_steps)
+add_test(test_calculator_div_steps calculator_div_steps)
+#copy feature file to binary folder ... still unable to make cmake recompile if feature file changes...
+configure_file(${PROJECT_FEATURES_DIR}/div.feature ${CMAKE_BINARY_DIR}/div.feature COPYONLY)
+
+
 #=== Custom target with all the steps targets
 set(ALL_CALCULATOR_STEPS_TARGETS
         calculator_add_steps
         calculator_sub_steps
         calculator_mul_steps
-        )
+        calculator_div_steps
+    )
 add_custom_target(calculator_test ALL DEPENDS ${ALL_CALCULATOR_STEPS_TARGETS})
