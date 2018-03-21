@@ -36,3 +36,35 @@ GSTEPS("Calculator Addition.Add two numbers")
                 };
             };
 }
+
+
+GSTEPS("Calculator Subtraction.Subtract two numbers")
+{
+    using namespace testing;
+    std::int64_t result{};
+
+    Given("I created a calculator with initial value equals {initialValue}"_step) =
+            [&](std::int32_t initialValue)
+            {
+                Calculator calculator{initialValue};
+
+
+                Given("I subtract {operand} into the calculator") =
+                        [&](std::int32_t operand)
+                        {
+                            calculator.Sub(operand);
+                        };
+
+                When("I ask for the result") =
+                        [&]
+                        {
+                            result = calculator.Result();
+                        };
+
+                Then("the result should be {expected} on the screen") =
+                        [&](std::int64_t expected)
+                        {
+                            EXPECT_EQ(expected, result);
+                        };
+            };
+}
