@@ -2,8 +2,6 @@
 #include "Calculator.hpp"
 #include "DividedByZeroException.hpp"
 
-#include <iostream>
-
 Calculator::Calculator(std::int32_t const& initialValue)
         : currentValue(initialValue)
         , op1(0)
@@ -37,7 +35,6 @@ Calculator& Calculator::Div(std::int32_t const &operand)
 {
     op1 = operand;
     operation = [] (std::int32_t a, std::int32_t b) -> std::int64_t {
-        std::cout << "Division" << std::endl;
         if (0 == b)
         {
             throw DividedByZeroException();
